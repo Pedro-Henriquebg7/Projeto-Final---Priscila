@@ -1,0 +1,13 @@
+<!-- alunos_app/templates/alunos_app/editar_aluno.html -->
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Editar Aluno</h1>
+  <form method="post" action="">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar Alterações</button>
+  </form>
+  <a href="{% url 'lista_alunos' %}">Cancelar</a>
+{% endblock %}
