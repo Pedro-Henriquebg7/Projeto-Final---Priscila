@@ -1,0 +1,25 @@
+<!-- No arquivo lista_alunos.html dentro do diretório "templates/alunos_app" -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Alunos</title>
+</head>
+<body>
+
+    <h1>Lista de Alunos</h1>
+
+    <ul>
+        {% for aluno in alunos %}
+            <li>{{ aluno.nome }} - {{ aluno.idade }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <a href="{% url 'criar_aluno' %}">Criar Novo Aluno</a>
+
+</body>
+</html>
