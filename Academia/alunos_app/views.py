@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from .models import Aluno
+from .models import Aluno, Plano, Instrutor
 from .forms import AlunoForm
 
 class AlunoListView(View):
@@ -41,7 +41,20 @@ def excluir_aluno(request, pk):
         aluno.delete()
         return redirect('lista_alunos')
     return render(request, 'alunos_app/excluir_aluno.html', {'aluno': aluno})
+# alunos_app/views.py
+
+
 def pagina_inicial(request):
-    # Código para a página inicial
-    return render(request, 'alunos_app/pagina_inicial.html')
+    # Obtenha as informações que você deseja exibir
+    informacoes = {
+        'titulo': 'Bem-vindo à Academia Boa Forma',
+        'descricao': 'A melhor academia da cidade!',
+        'contato': {
+            'email': 'contato@academiaboaforma.com',
+            'telefone': '(84) 99234-3548',
+        },
+    }
+
+    # Passe as informações para o template
+    return render(request, 'alunos_app/pagina_inicial.html', informacoes)
 
