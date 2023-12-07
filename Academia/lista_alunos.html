@@ -3,8 +3,8 @@
 <ul>
   {% for aluno in alunos %}
     <li>
-      <p>{{ aluno.nome }} - {{ aluno.idade }} <a href="{% url 'editar_aluno' pk=aluno.pk %}">Editar</a></p>
-      <p>{{ aluno.nome }} - {{ aluno.idade }} <a href="{% url 'excluir_aluno' pk=aluno.pk %}">Excluir</a></p>
+      <p>{{ aluno.nome }}    <a href="{% url 'editar_aluno' pk=aluno.pk %}">Editar</a></p>
+      <p>{{ aluno.nome }}  <a href="{% url 'excluir_aluno' pk=aluno.pk %}">Excluir</a></p>
     </li>
   {% endfor %}
 </ul>
