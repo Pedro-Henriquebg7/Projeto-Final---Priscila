@@ -56,5 +56,5 @@ def pagina_inicial(request):
     }
 
     # Passe as informações para o template
-    return render(request, 'alunos_app/pagina_inicial.html', informacoes)
+    return render(request, 'alunos_app/pagina_inicial.html')
 
