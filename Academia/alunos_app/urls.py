@@ -8,6 +8,7 @@ urlpatterns = [
     path('editar_aluno/<int:pk>/', editar_aluno, name='editar_aluno'),
     path('excluir_aluno/<int:pk>/', excluir_aluno, name='excluir_aluno'),
     path('pagina_inicial/', pagina_inicial, name='pagina_inicial'),
+    path('', pagina_inicial, name='pagina_inicial'),
     # Adicione outras rotas conforme necessário
 ]
 
