@@ -1,12 +1,187 @@
-<!-- alunos_app/templates/alunos_app/pagina_inicial.html -->
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Página Inicial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Boa Forma</title>
+    <style>
+        /* Reset de Estilos */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+            background: linear-gradient(to right, #333, #3498db);
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #333, #3498db);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        h1 {
+            color: #3498db; /* Cor azul */
+            text-transform: uppercase;
+            font-size: 36px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 3px rgba(255,255,255,0.8);
+        }
+
+        nav {
+            background-color: #2c3e50; /* Nova cor do cabeçalho */
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #3498db; /* Cor azul atraente */
+        }
+
+        p {
+            color: #fff; /* Cor do texto */
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            color: #f8f9fa; /* Cor do texto do formulário */
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu a {
+            color: #f8f9fa; /* Cor do texto do menu */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .menu a:hover {
+            color: #3498db; /* Cor do texto do menu ao passar o mouse */
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+
+        /* Estilos para telas maiores que 768px */
+        @media (min-width: 769px) {
+            nav {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .menu {
+                display: flex;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+            }
+
+            .menu a {
+                color: #f8f9fa; /* Cor do texto do menu */
+                text-decoration: none;
+                margin: 0 15px;
+                font-size: 16px;
+                font-weight: bold;
+                position: relative;
+                transition: color 0.3s ease, transform 0.3s ease;
+            }
+
+            .menu a:hover {
+                color: #3498db; /* Cor do texto do menu ao passar o mouse */
+                text-decoration: underline;
+                transform: scale(1.1);
+            }
+        }
+
+        /* Estilos para telas menores que 768px */
+        @media (max-width: 768px) {
+            nav {
+                text-align: center;
+            }
+
+            .menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50; /* Nova cor do menu para telas menores */
+            }
+
+            .menu.show {
+                display: flex;
+            }
+
+            .menu a {
+                margin: 10px 0;
+            }
+
+            .menu-icon {
+                display: flex;
+                cursor: pointer;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Bem-vindo à Página Inicial</h1>
-    <!-- Adicione mais conteúdo conforme necessário -->
+    <header>
+        <h1>Academia Boa Forma</h1>
+    </header>
+    <nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <ul class="menu">
+            <li><a href="{% url 'pagina_inicial' %}">Home</a></li>
+            <li><a href="{% url 'criar_aluno' %}">Criar Aluno</a></li>
+            <li><a href="{% url 'lista_alunos' %}">Lista de Alunos</a></li>
+            <li><a href="{% url 'admin:index' %}" target="_blank">Admin</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h2>Seção Principal</h2>
+        <p>
+            Bem-vindo à Academia Boa Forma. Este é um exemplo básico para começar.
+        </p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+    </script>
 </body>
 </html>

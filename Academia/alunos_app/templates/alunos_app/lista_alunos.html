@@ -1,25 +1,166 @@
-<!-- No arquivo lista_alunos.html dentro do diretório "templates/alunos_app" -->
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Alunos</title>
+    <title>Lista de Alunos - Academia Boa Forma</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #333, #3498db);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            background: linear-gradient(to right, #333, #3498db);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            width: 100%;
+        }
+
+        h1 {
+            color: #3498db; /* Cor azul */
+            text-transform: uppercase;
+            font-size: 28px; /* Tamanho reduzido */
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 3px rgba(255,255,255,0.8);
+        }
+
+        nav {
+            background-color: #2c3e50; /* Nova cor do cabeçalho */
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu a {
+            color: #f8f9fa; /* Cor do texto do menu */
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+            font-weight: bold;
+            position: relative;
+            
+        }
+
+        .menu a:hover {
+            color: #3498db; /* Cor do texto do menu ao passar o mouse */
+            text-decoration: underline;
+            transform: scale(1.1);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h2 {
+            color: #3498db; /* Cor azul atraente */
+            text-transform: uppercase;
+            font-size: 36px; /* Tamanho aumentado */
+            position: relative;
+            text-shadow: 2px 2px 3px rgba(255,255,255,0.8);
+        }
+
+        h2::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #3498db;
+            bottom: -6px;
+            left: 0;
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        h2:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        li {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: rotateX(5deg);
+        }
+
+        a {
+            color: #3498db; /* Cor azul */
+            text-decoration: none;
+            font-weight: bold;
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Lista de Alunos</h1>
+    <header>
+        <h1>Academia Boa Forma</h1>
+    </header>
+    <nav>
+        <ul class="menu">
+            <li><a href="{% url 'pagina_inicial' %}">Home</a></li>
+            <li><a href="{% url 'criar_aluno' %}">Criar Aluno</a></li>
+            <li><a href="{% url 'lista_alunos' %}">Lista de Alunos</a></li>
+            <li><a href="{% url 'admin:index' %}" target="_blank">Admin</a></li>
+        </ul>
+    </nav>
 
-    <ul>
-        {% for aluno in alunos %}
-            <li>{{ aluno.nome }} - {{ aluno.idade }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <h2>Lista de Alunos</h2>
 
-    <br>
-
-    <a href="{% url 'criar_aluno' %}">Criar Novo Aluno</a>
+        <ul>
+            {% for aluno in alunos %}
+                <li>{{ aluno.nome }} - {{ aluno.idade }}</li>
+            {% endfor %}
+        </ul>
+       
+    </div>
 
 </body>
 </html>
